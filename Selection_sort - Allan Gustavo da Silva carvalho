@@ -1,0 +1,22 @@
+def selection_sort(arr):
+  n = len(arr)
+  for i in range(n):
+    min_idx = i
+    for j in range(i + 1, n):
+      if arr[j] < arr[min_idx]:
+        min_idx = j
+    arr[i], arr[min_idx] = arr[min_idx], arr[i]
+  return arr
+
+import pandas as pd
+# criando Dataframe com pandas
+
+lista = (8, 5, 2, 58, 42, 3, 6, 99, 55, 0, 1, 53, 100, 505, -9, -8, -96, 8562)
+df = pd.DataFrame(lista, columns = ['valores'])
+
+#aplicando o selection sort
+
+ordenado = selection_sort(df['valores'].tolist())
+#mostrando apenas o resulddo final
+
+print(ordenado)
